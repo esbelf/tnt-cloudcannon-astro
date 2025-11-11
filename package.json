@@ -12,6 +12,9 @@
     "pagefind": "npx -y pagefind --site dist --serve",
     "pagefind-server": "run-s build pagefind"
   },
+  "compilerOptions": {
+    "importHelpers": true
+  },
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.3",
     "@astrojs/mdx": "^4.0.7",
@@ -42,6 +45,7 @@
     "@bookshop/generate": "3.16.1",
     "@types/markdown-it": "^14.0.1",
     "astro-seo": "^0.8.0",
-    "markdown-it": "^13.0.1"
+    "markdown-it": "^13.0.1",
+    "tslib": "^2.8.1"
   }
 }

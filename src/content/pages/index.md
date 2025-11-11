@@ -15,7 +15,9 @@ hero_block:
   _bookshop_name: heroes/hero
   background_color: '#ffffff'
   heading:
-    heading_text: CloudCannon Astro Starter
+    text_span: DENTAL MARKETING
+    text_primary: THE POWER BEHIND
+    text_secondary: YOUR PRACTICE
     heading_gradient_color: '#A0A2FF'
     text_color: '#333232'
   subheading:
@@ -50,6 +52,11 @@ hero_block:
       button_aria_label:
       background_color: '#034ad8'
 content_blocks:
+  - _bookshop_name: results
+    background_color: '#034AD8'
+    heading:
+      heading_primary_text: START WITH
+      heading_secondary_text: UNMATCHED RESULTS
   - _bookshop_name: left-right
     background_color: '#ffffff'
     heading:

@@ -15,7 +15,7 @@ spec:
 blueprint:
   background_color: '#ffffff'
   heading:
-    heading_text: Astro Bookshop Starter
+    heading_text: Eric Bookshop Starter
     heading_gradient_color: '#a0a2ff'
   subheading:
     text_content: >-

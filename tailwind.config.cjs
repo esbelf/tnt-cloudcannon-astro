@@ -9,6 +9,16 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
+    colors: {
+      'white': '#fff',
+      'primary': '#ED7465'
+    },
+    extend: {
+      fontFamily: {
+        sans: ['Outfit', 'system-ui'],
+        outfit: ['Outfit']
+      }
+    },
     plugins: [],
   },
 };

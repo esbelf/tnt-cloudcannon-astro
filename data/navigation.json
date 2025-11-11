@@ -3,21 +3,17 @@
     "logo": "/images/logos/logo-wordmark-blue.png",
     "logo_alt_text": "CloudCannon logo",
     "logo_url": "/",
-    "background_color": "#ffffff",
+    "background_color": "transparent",
     "text_color": "#393939",
     "hover_text_color": "#808080",
     "links": [
       {
         "link": "/blog/",
         "text": "Blog"
-      },
+      },      
       {
-        "link": "https://github.com/CloudCannon/astro-starter/",
-        "text": "GitHub"
-      },
-      {
-        "link": "https://cloudcannon.com/",
-        "text": "CloudCannon"
+        "link": "https://www.tntdental.com/",
+        "text": "TNT Main Site"
       }
     ]
   },

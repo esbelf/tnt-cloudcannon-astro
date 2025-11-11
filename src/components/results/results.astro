@@ -1,0 +1,21 @@
+---
+interface Props {
+  key: number;
+  content_blocks_length: number;
+  background_color: string;
+  heading: {
+    heading_primary_text: string;
+    heading_secondary_text: string;
+  };
+}
+const {
+  key,
+  content_blocks_length,
+  background_color,
+  heading
+} = Astro.props;
+---
+<div>
+  <p>RESULTS</p>
+  <p>{heading.heading_primary_text}</p>
+</div>

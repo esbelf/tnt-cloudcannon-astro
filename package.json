@@ -21,6 +21,7 @@
     "@astrojs/react": "^4.2.0",
     "@astrojs/tailwind": "^5.1.5",
     "@bookshop/astro-bookshop": "3.16.1",
+    "@fontsource/outfit": "^5.2.8",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",

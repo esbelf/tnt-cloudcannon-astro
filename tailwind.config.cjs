@@ -15,7 +15,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Outfit', 'system-ui'],
+        system: ['system-ui'],
         outfit: ['Outfit']
       }
     },

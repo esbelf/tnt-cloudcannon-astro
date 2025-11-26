@@ -1,0 +1,79 @@
+---
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  key: number;
+  icon_name: string;
+  top_text: string;
+  oversize_text: string;
+  bottom_text: string;
+}
+
+const { key, icon_name, top_text, oversize_text, bottom_text } = Astro.props;
+
+// 1. Use import.meta.glob to import ALL SVGs as raw strings.
+// The file path must be a static string (no variables allowed inside the glob pattern).
+// Adjust the path to where your icons are stored, e.g., '/src/assets/icons/'
+const iconFiles = import.meta.glob<{ default: string }>(
+  "/src/assets/icons/*.svg",
+  {
+    query: "?raw", // Important: imports the SVG content as a raw string
+    eager: true, // Important: loads all files immediately at build time
+  },
+);
+
+// 2. Construct the file path to look up in the 'iconFiles' object
+const iconPath = `/src/assets/icons/${icon_name}.svg`;
+
+// 3. Look up the icon and extract its content
+if (!iconFiles[iconPath]) {
+  console.error(`Icon "${icon_name}.svg" not found at path: ${iconPath}`);
+  // Return null or a fallback element if the icon isn't found
+  return null;
+}
+
+const rawSvg = iconFiles[iconPath].default;
+
+// OPTIONAL: Basic function to extract the inner HTML of the <svg> tag
+// This helps prevent duplicate <svg> tags and apply props
+function getSvgInnerContent(svgString: string): string {
+  const match = svgString.match(/<svg[^>]*>([\s\S]*?)<\/svg>/i);
+  return match ? match[1].trim() : "";
+}
+
+const innerHTML = getSvgInnerContent(rawSvg);
+---
+
+<div class="flex-1 flex flex-col gap-2 p-4">
+  <div class="flex items-center justify-center mb-2">
+    <div class="h-[8rem] w-[8rem]">
+      <svg
+        class={"icon-svg"}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        set:html={innerHTML}
+      />
+    </div>
+  </div>
+  <div class="">
+    <p class="text-3xl font-outline font-medium text-center">{top_text}</p>
+  </div>
+  <div class="">
+    <p class="text-9xl font-extralight font-outline text-center">
+      {oversize_text}
+    </p>
+  </div>
+  <div class="">
+    <p class="text-3xl font-outline font-medium text-center">
+      {bottom_text}
+    </p>
+  </div>
+</div>
+
+<style>
+  .icon-svg {
+    /* Optional: ensures the icon scales correctly inside the parent box */
+    display: block;
+  }
+</style>

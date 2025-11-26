@@ -15,6 +15,11 @@ This template is aimed at helping developers build sites quickly, rather than pr
 1. To start using this template, go to the [GitHub repository](https://github.com/CloudCannon/astro-starter/), and click `Use this template` to make your own copy.
 
 2. Follow [this guide](https://cloudcannon.com/documentation/guides/astro-starter-guide/sync-your-files/) to add your new GitHub repository to CloudCannon.
+  
+3. Astro Docs (https://docs.astro.build/en/install-and-setup/)
+
+4. Guide for Bookshop with Astro or React (https://cloudcannon.com/documentation/guides/bookshop-astro-guide/)
+
 
 ### Local Development
 

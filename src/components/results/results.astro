@@ -1,4 +1,8 @@
 ---
+import { Picture } from "astro:assets";
+import Markdown from "../../utility/markdown.astro";
+import ResultContentBlock from "./result-content-block.astro";
+
 interface Props {
   key: number;
   content_blocks_length: number;
@@ -7,15 +11,43 @@ interface Props {
     heading_primary_text: string;
     heading_secondary_text: string;
   };
+  subheading: {
+    subheading_text: string;
+  };
+  content_blocks?: ResultContentBlock[];
 }
 const {
   key,
   content_blocks_length,
   background_color,
-  heading
+  heading,
+  subheading,
+  content_blocks = [],
 } = Astro.props;
 ---
-<div>
-  <p>RESULTS</p>
-  <p>{heading.heading_primary_text}</p>
+
+<div class="flex flex-col gap-4 p-4">
+  <div class="flex-shrink flex flex-row gap-4">
+    <div class="flex-1">
+      <h1 class="font-outline font-black text-6xl">
+        {heading.heading_primary_text}
+      </h1>
+      <h1 class="font-black text-6xl">{heading.heading_secondary_text}</h1>
+    </div>
+    <div class="flex-1">
+      <p class="font-normal">{subheading.subheading_text}</p>
+    </div>
+  </div>
+  <div class="flex flex-col gap-4">
+    <div class="flex-shrink"></div>
+    <div class="flex-grow flex flex-col gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {
+          content_blocks.map((content_block_args, index) => (
+            <ResultContentBlock key={index} {...content_block_args} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </div>

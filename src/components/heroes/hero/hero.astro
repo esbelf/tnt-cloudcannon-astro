@@ -38,32 +38,28 @@ const allButtons = import.meta.glob("/src/components/buttons/**/*.astro", {
 
 const allImages = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/**/*.{jpeg,jpg,png,gif,svg,webp,avif}",
-  { eager: true }
+  { eager: true },
 );
 const imageSrc = allImages[image.image_path]?.default ?? image.image_path;
-
-const backgroundImageSrc = allImages["/src/assets/images/hero/hero-background.jpg"]?.default;
-
 const headingGradientColor = heading.heading_gradient_color;
+
+// You can use a custom style block in Astro for background image if the path is dynamic
+const backgroundImagePath = "/src/assets/images/hero/hero-background.jpg";
+const backgroundStyle = `background-image: url('${backgroundImagePath}');`;
 ---
 
 <section
-  style={`background-color: ${background_color};`}
-  aria-labelledby="hero-heading-text">
-  <div class="relative flex items-end justify-start text-center">
-    <Picture
-      alt={image.alt_text}
-      src={backgroundImageSrc}
-      class={"w-full object-cover opacity-80"} 
-      loading={"eager"}
-      widths={[600, 800, 1200, 1400]}
-      sizes="(max-width: 1400px) 100vw, 1400px"
-      formats={["avif", "webp"]}
-    />
-    <div class="p-4 absolute text-xs text-left">
-      <span class="font-black font-xs text-white">{heading.text_span}</span>
-      <h1 class="text-4xl font-black text-white">{heading.text_primary}</h1>
-      <h1 class="text-4xl font-black text-primary">{heading.text_secondary}</h1>
+  style={backgroundStyle}
+  class="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat min-h-[50rem]"
+  aria-labelledby="hero-heading-text"
+>
+  <div class="absolute bottom-0 left-0 text-center text-white p-4">
+    <div class="text-left">
+      <span class="text-xs font-medium text-white">{heading.text_span}</span>
+      <h1 class="text-8xl font-black text-white">{heading.text_primary}</h1>
+      <h1 class="text-8xl font-black text-primary">
+        {heading.text_secondary}
+      </h1>
     </div>
   </div>
 </section>

@@ -95,6 +95,32 @@ content_blocks:
       alt: Relationships Image
     bottom_text: >-
       THE LEADER OF TNT'S SOCIAL MEDIA TEAM, CATHERINE, AT A PHOTO SHOOT WITH THE TEAM AT NORTHEAST ARKANSAS DENTISTRY
+  - _bookshop_name: circle-image-section
+    background_color: '#fff'
+    main_text_color: '#000'
+    heading:
+      primary_text: KNOWN BY THE
+      secondary_text: COMPANY WE KEEP
+    subheading:
+      text: >-
+        We are proud to be the only dental marketing company with this incredible array of credentials, awards, and partnerships.  The votes of confidence from other leaders mean the world to us.  We believe they will make a difference to you, too.
+    images:
+      - src: /src/assets/images/partners/ada-certificate.svg
+        alt: "x"
+      - src: /src/assets/images/partners/curve-partner.svg
+        alt: "x"
+      - src: /src/assets/images/partners/dental-intelligence.svg
+        alt: "x"
+      - src: /src/assets/images/partners/facebook.svg
+        alt: "x"
+      - src: /src/assets/images/partners/google-partner.svg
+        alt: "x"
+      - src: /src/assets/images/partners/pace-partner.svg
+        alt: "x"
+      - src: /src/assets/images/partners/ux-design-institute.svg
+        alt: "x"
+      - src: /src/assets/images/partners/weave-partner.svg
+        alt: "x"
   - _bookshop_name: title-image-block
     background_color: '#fff'
     main_text_color: "#000"

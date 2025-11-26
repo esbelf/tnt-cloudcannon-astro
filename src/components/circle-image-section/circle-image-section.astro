@@ -1,0 +1,130 @@
+---
+interface ImageItem {
+    src: string;
+    alt?: string;
+}
+interface Props {
+    main_text_color: string;
+    background_color: string;
+    heading: {
+        primary_text: string;
+        secondary_text?: string;
+    };
+    subheading: {
+        text: string;
+    };
+    images: ImageItem[];
+}
+const { main_text_color, background_color, heading, subheading, images } =
+    Astro.props;
+const backgroundStyle = background_color
+    ? `background-color: ${background_color};`
+    : "";
+---
+
+<div class="py-16 flex items-center justify-center min-h-screen">
+    <div class="relative image-container rounded-full">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="flex flex-col items-center">
+                <div class="flex-1">
+                    <h1 class="text-6xl font-black">
+                        {heading.primary_text}
+                    </h1>
+                </div>
+                <div class="flex-1">
+                    <h1 class="text-6xl font-black text-primary">
+                        {heading.secondary_text}
+                    </h1>
+                </div>
+                <div class="flex-1">
+                    <p class="mt-4 text-center text-base w-[30rem]">
+                        {subheading?.text}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute inset-0">
+            <img
+                class="left-[27.5rem] top-[12.5rem] absolute size-32 object-contain image-0"
+                src={images[0].src}
+                alt="Image 1"
+            />
+            <img
+                class="left-[27.5rem] top-[12.5rem] absolute size-32 object-contain image-1"
+                src={images[1].src}
+                alt="Image 2"
+            />
+            <img
+                class="left-[27.5rem] top-[12.5rem] absolute size-32 object-contain image-2"
+                src={images[2].src}
+                alt="Image 3"
+            />
+            <img
+                class="left-[27.5rem] top-[12.5rem] absolute size-32 object-contain image-3"
+                src={images[3].src}
+                alt="Image 4"
+            />
+            <img
+                class="left-[27.5rem] top-[12.5rem] absolute size-32 object-contain image-4"
+                src={images[4].src}
+                alt="Image 5"
+            />
+            <img
+                class="left-[27.5rem] top-[12.5rem] absolute size-32 object-contain image-5"
+                src={images[5].src}
+                alt="Image 6"
+            />
+            <img
+                class="left-[27.5rem] top-[12.5rem] absolute size-32 object-contain image-6"
+                src={images[6].src}
+                alt="Image 7"
+            />
+            <img
+                class="left-[27.5rem] top-[12.5rem] absolute size-32 object-contain image-7"
+                src={images[7].src}
+                alt="Image 8"
+            />
+        </div>
+    </div>
+
+    <style>
+        /* Custom CSS to define the rotation angles for each image */
+        /* This is necessary because Tailwind doesn't have an arbitrary rotation utility for every 45 degrees */
+        .image-container {
+            width: 60rem;
+            height: 30rem;
+        }
+
+        /* 8 images at 360/8 = 45-degree intervals */
+        .image-0 {
+            transform: rotate(0deg) translate(30rem) rotate(0deg);
+        }
+        .image-1 {
+            transform: rotate(45deg) translate(25rem) rotate(-45deg);
+        }
+        .image-2 {
+            transform: rotate(90deg) translate(20rem) rotate(-90deg);
+        }
+        .image-3 {
+            transform: rotate(135deg) translate(25rem) rotate(-135deg);
+        }
+        .image-4 {
+            transform: rotate(180deg) translate(30rem) rotate(-180deg);
+        }
+        .image-5 {
+            transform: rotate(225deg) translate(25rem) rotate(-225deg);
+        }
+        .image-6 {
+            transform: rotate(270deg) translate(20rem) rotate(-270deg);
+        }
+        .image-7 {
+            transform: rotate(315deg) translate(25rem) rotate(-315deg);
+        }
+        /* Key:
+    * 1. rotate(Xdeg): Rotates the image's position around the center of the main container.
+    * 2. translate(250px): Moves the image out to the radius (half of the container size).
+    * 3. rotate(-Xdeg): Counter-rotates the image itself so it appears upright.
+    */
+    </style>
+</div>

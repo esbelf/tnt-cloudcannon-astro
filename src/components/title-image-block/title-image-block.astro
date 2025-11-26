@@ -1,0 +1,66 @@
+---
+interface Props {
+    main_text_color: string;
+    background_color: string;
+    heading: {
+        primary_text: string;
+        secondary_text?: string;
+    };
+    subheading: {
+        text: string;
+    };
+    image: {
+        src: string;
+        alt: string;
+    };
+    bottom_text: string;
+}
+const {
+    main_text_color,
+    background_color,
+    heading,
+    subheading,
+    image,
+    bottom_text,
+} = Astro.props;
+const backgroundStyle = background_color
+    ? `background-color: ${background_color};`
+    : "";
+---
+
+<section class={"w-full base-class"} style={backgroundStyle}>
+    <div class="p-16 flex flex-col gap-8">
+        <!-- Title bar across the width -->
+        <div class="flex-1 flex flex-row justify-between">
+            <div class="flex-1">
+                <h1 class="font-black text-6xl">
+                    {heading.primary_text}
+                </h1>
+                <h1 class="font-black text-6xl text-primary">
+                    {heading.secondary_text}
+                </h1>
+            </div>
+            <div class="flex-1 text-right">
+                <p>{subheading?.text}</p>
+            </div>
+        </div>
+
+        <!-- Full-width image -->
+        <div class="flex-1">
+            <img
+                src={image.src}
+                alt={image.alt}
+                class="w-full h-auto object-cover"
+            />
+        </div>
+
+        <!-- Text below image -->
+        <div class="text-center font-medium text-base">{bottom_text}</div>
+    </div>
+</section>
+
+<style define:vars={{ main_text_color }}>
+    .base-class {
+        color: var(--main_text_color);
+    }
+</style>

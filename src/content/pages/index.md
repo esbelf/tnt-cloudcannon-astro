@@ -81,6 +81,34 @@ content_blocks:
         top_text: Overall, our marketing programs earn a
         bottom_text: ROI for each $1 invested
         oversize_text: 17x
+  - _bookshop_name: title-image-block
+    background_color: '#2A2F33'
+    main_text_color: '#fff'
+    heading: 
+      primary_text: BUILD STRONG
+      secondary_text: RELATIONSHIPS
+    subheading: 
+      text: >-
+        Along with delivering unmatched results, we work hard every day to earn your trust and confidence.  It is why our first customer is still with us after 26 years.  Each client enjoys a single point-of-contact who has an average of 6 years of dental marketing experience.  And, these folks are dedicated to making your marketing understandable and your life easier.
+    image:
+      src:  /src/assets/images/relationships.jpg
+      alt: Relationships Image
+    bottom_text: >-
+      THE LEADER OF TNT'S SOCIAL MEDIA TEAM, CATHERINE, AT A PHOTO SHOOT WITH THE TEAM AT NORTHEAST ARKANSAS DENTISTRY
+  - _bookshop_name: title-image-block
+    background_color: '#fff'
+    main_text_color: "#000"
+    heading: 
+      primary_text: CHOOSE 1-STOP
+      secondary_text: CONVENIENCE
+    subheading: 
+      text: >-
+        Gone are the days of trying to figure out and coordinate what 4 different marketing companies are doing.  Here is the opportunity to have TNT handle everything.  From analytics to websites to Google Ads, we are experts.  From front desk training to geo-fencing to social media, we got it.  Best of all, our efforts always include transparency, clarity, and accountability.
+    image:
+      src: /src/assets/images/working.png
+      alt: Working Image
+    bottom_text: >-
+      KELSEY, TNT GROWER LEADER
   - _bookshop_name: left-right
     background_color: '#ffffff'
     heading:

@@ -1,0 +1,112 @@
+# results.bookshop.yml
+# Bookshop block definition for the Results component
+# Follow project conventions: component props mirror the fields below.
+
+title: Results
+label: Results
+status: ready
+description: >
+  A reusable results/listing block for search results or generic item lists.
+  Supports list or grid layouts, optional pagination, and editor-friendly fields.
+
+# Path to the Astro component that renders this block
+# (adjust if your Results.astro lives somewhere else)
+view: src/components/results/Results.astro
+
+# Optional preview file (if you have one under src/bookshop/previews)
+# preview: src/bookshop/previews/Results.preview.astro
+
+fields:
+  - name: heading
+    label: Heading
+    type: text
+    default: Results
+
+  - name: subheading
+    label: Subheading
+    type: text
+    default: ''
+
+  - name: layout
+    label: Layout
+    type: select
+    default: list
+    options:
+      - { label: List (single-column), value: list }
+      - { label: Grid (cards), value: grid }
+
+  - name: showResultCount
+    label: Show result count
+    type: boolean
+    default: true
+
+  - name: noResultsMessage
+    label: No-results message
+    type: text
+    default: No results found.
+
+  - name: items
+    label: Items
+    type: list
+    item:
+      type: object
+      label: Result item
+      fields:
+        - name: title
+          label: Title
+          type: text
+          default: Result title
+        - name: excerpt
+          label: Excerpt
+          type: textarea
+          default: Short description of the result item.
+        - name: url
+          label: URL
+          type: text
+          default: /example
+        - name: date
+          label: Date
+          type: text
+          default: ''
+        - name: thumbnail
+          label: Thumbnail
+          type: image
+          default: ''
+
+  - name: pagination
+    label: Pagination
+    type: object
+    fields:
+      - name: enabled
+        label: Enable pagination
+        type: boolean
+        default: false
+      - name: pageSize
+        label: Items per page
+        type: number
+        default: 10
+        min: 1
+        max: 100
+
+# Example data surfaced in the editor preview for quick scaffolding
+# Editors can copy/paste or use this as a starting point.
+examples:
+  - name: Default results
+    data:
+      heading: Search results
+      subheading: Showing relevant matches
+      layout: list
+      showResultCount: true
+      noResultsMessage: No results found.
+      items:
+        - title: Teeth cleaning basics
+          excerpt: Tips and tricks for routine dental cleaning.
+          url: /blog/teeth-cleaning-basics
+          date: 2024-05-01
+        - title: Choosing the right toothbrush
+          excerpt: How to pick a toothbrush that fits your mouth and routine.
+          url: /blog/choosing-the-right-toothbrush
+          date: 2024-04-15
+      pagination:
+        enabled: false
+        pageSize: 10

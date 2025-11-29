@@ -1,6 +1,5 @@
 ---
 import { Picture } from "astro:assets";
-import Markdown from "../../utility/markdown.astro";
 import ResultContentBlock from "./result-content-block.astro";
 
 interface Props {
@@ -14,7 +13,7 @@ interface Props {
   subheading: {
     subheading_text: string;
   };
-  content_blocks?: ResultContentBlock[];
+  content_blocks?: Record<string, any>[];
 }
 const {
   key,
@@ -44,7 +43,14 @@ const {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {
           content_blocks.map((content_block_args, index) => (
-            <ResultContentBlock key={index} {...content_block_args} />
+            <ResultContentBlock
+              key={index}
+              icon_name={content_block_args.icon_name}
+              top_text={content_block_args.top_text}
+              oversize_text={content_block_args.oversize_text}
+              bottom_text={content_block_args.bottom_text}
+              {...content_block_args}
+            />
           ))
         }
       </div>

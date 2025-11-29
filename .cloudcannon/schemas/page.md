@@ -10,4 +10,5 @@ seo:
   no_index: false
 hero_block:
 content_blocks: []
+footer_block:
 ---

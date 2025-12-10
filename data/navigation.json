@@ -10,7 +10,7 @@
       {
         "link": "/blog/",
         "text": "Blog"
-      },      
+      },
       {
         "link": "https://www.tntdental.com/",
         "text": "TNT Main Site"
@@ -18,11 +18,11 @@
     ]
   },
   "footer": {
-    "logo": "/images/logos/logo-wordmark-white.png",
-    "logo_alt_text": "CloudCannon logo",
+    "logo": "/images/logos/tnt-logo.png",
+    "logo_alt_text": "TNT Dental",
     "logo_url": "/",
-    "copyright": "MyCompany. All rights reserved.",
-    "background_color": "#333232",
+    "copyright": "TNT Dental All rights reserved.",
+    "background_color": "#ffffff",
     "text_color": "#ffffff",
     "hover_text_color": "#F2F2F2",
     "links": [
@@ -33,6 +33,58 @@
       {
         "link": "/feed.xml",
         "text": "RSS Feed"
+      }
+    ],
+    "featured_services_column_1": [
+      {
+        "link": "/",
+        "text": "Custom Websites"
+      },
+      {
+        "link": "/",
+        "text": "Custom Photos & Videos"
+      },
+      {
+        "link": "/",
+        "text": "Social Media"
+      },
+      {
+        "link": "/",
+        "text": "Facebook & Instagram Ads"
+      },
+      {
+        "link": "/",
+        "text": "Community Marketing"
+      },
+      {
+        "link": "/",
+        "text": "TikTok & YouTube Ads"
+      }
+    ],
+    "featured_services_column_2": [
+      {
+        "link": "/",
+        "text": "Analytics & Strategy"
+      },
+      {
+        "link": "/",
+        "text": "Geofencing"
+      },
+      {
+        "link": "/",
+        "text": "SEO"
+      },
+      {
+        "link": "/",
+        "text": "Google Ads"
+      },
+      {
+        "link": "/",
+        "text": "Reputation Management"
+      },
+      {
+        "link": "/",
+        "text": "AI Search Optimization"
       }
     ],
     "social": [

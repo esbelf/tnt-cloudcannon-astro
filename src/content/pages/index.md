@@ -136,4 +136,5 @@ content_blocks:
     bottom_text: >-
       KELSEY, TNT GROWER LEADER
   - _bookshop_name: circle-icon-section
+  - _bookshop_name: three-columns    
 ---

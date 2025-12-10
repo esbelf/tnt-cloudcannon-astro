@@ -11,7 +11,8 @@ module.exports = {
     },
     colors: {
       'white': '#fff',
-      'primary': '#ED7465'
+      'primary': '#ED7465',
+      'secondary': '#2A2F33'
     },
     extend: {
       fontFamily: {

@@ -1,67 +1,142 @@
 ---
 import { footer } from "../../../data/navigation.json";
 import Icon from "../utility/Icon";
+import { Image } from "astro:assets";
+
+import footerImage from "/src/assets/images/footer/footer-image.png";
+// const footerImage = import.meta.glob(footerImagePath, { eager: true });
+
 const linkHoverColor = footer.hover_text_color;
 ---
 
 <footer
-  style={`background-color: ${footer.background_color}; color: ${footer.text_color};`}>
-  <div class="px-8">
-    <div
-      class="footer grid grid-cols-1 sm:grid-cols-3 justify-between items-center gap-8 py-[48px]">
-      <a
-        class="flex justify-center sm:justify-start items-center"
-        href={footer.logo_url}>
-        <img
-          class="footer__logo-image"
-          src={footer.logo}
-          alt={footer.logo_alt_text}
-        />
-      </a>
-      <ul class="flex gap-4 items-center justify-center">
+  style={`background-color: ${footer.background_color}; color: ${footer.text_color};`}
+>
+  <div class="grid grid-cols-5 gap-4">
+    <div class="col-span-3 flex flex-col px-8">
+      <div class="flex-1">
         {
-          footer.social.map((link) => {
-            return (
-              <li class="w-[2rem]">
-                <a href={link.link} aria-label={link.name}>
-                  <Icon icon={link.icon} />
-                </a>
-              </li>
-            );
-          })
+          footer.logo && (
+            <a href="/" class="h-full w-full">
+              <img
+                class="w-2xl h-auto"
+                src={footer.logo}
+                alt={footer.logo_alt_text ?? "Footer Logo"}
+              />
+            </a>
+          )
         }
-      </ul>
+      </div>
+      <div class="flex-1 grid grid-cols-5">
+        <div class="col-span-2 flex flex-col">
+          <div class="flex-shrink flex flex-row flex-start">
+            <!-- SOCIAL MEDIA ICONS -->
+          </div>
+          <div class="flex-grow flex flex-col">
+            <p class="text-secondary text-base font-medium">
+              © 2025 TNT Dental
+            </p>
+            <p class="text-secondary text-base font-medium">
+              All rights reserved
+            </p>
+            <p class="text-secondary text-base font-medium">
+              2100 N. Collins Blvd.
+            </p>
+            <p class="text-secondary text-base font-medium">
+              Richardson, Texas 75080
+            </p>
+            <p class="text-secondary text-base font-medium">(877) 317-4885</p>
+          </div>
+        </div>
+        <div class="col-span-3 flex flex-col">
+          <div class="flex-shrink">
+            <h6 class="text-secondary text-lg font-normal">
+              FEATURED SERVICES
+            </h6>
+          </div>
+          <div class="flex-grow flex flex-row">
+            <div class="flex-1">
+              <ul class="footer-links">
+                {
+                  footer.featured_services_column_1.map((service) => (
+                    <li>
+                      <a
+                        class="text-secondary text-base font-medium"
+                        href={service.link}
+                      >
+                        {service.text}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+            <div class="flex-1">
+              <ul class="footer-links">
+                {
+                  footer.featured_services_column_2.map((service) => (
+                    <li>
+                      <a
+                        class="text-secondary text-base font-medium"
+                        href={service.link}
+                      >
+                        {service.text}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <ul class="footer-links flex flex-col text-center sm:text-end gap-4">
-        {
-          footer.links.map((link) => {
-            return (
-              <li>
-                <a href={link.link}>{link.text}</a>
-              </li>
-            );
-          })
-        }
-      </ul>
+      <div class="x">
+        <div class="x">
+          <p class="text-secondary text-center text-base font-medium py-8">
+            &#169; {new Date().getFullYear()}
+            {footer.copyright}
+            <a href="/" class="text-primary underline ml-2">Sitemap</a>
+            <a href="/" class="text-primary underline ml-2">Privacy Policy</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-2 flex flex-col footer-right-column">
+      <div class="flex-1 p-8">
+        <h6 class="text-secondary text-3xl text-center font-bold">
+          READY TO BEGIN YOUR <span class="text-primary">JOURNEY</span> WITH TNT
+          DENTAL?
+        </h6>
+        <div class="mt-4 flex flex-row justify-center">
+          <button
+            class="inline-block px-6 py-3 text-white bg-primary rounded-2xl font-bold"
+          >
+            <h5 class="text-3xl">REQUEST</h5>
+            <p class="text-lg">A FREE MARKETING EVALUATION</p>
+          </button>
+        </div>
+      </div>
+      <div class="flex-1">
+        <Image src={footerImage} alt={"footerimage"} class="h-full w-full" />
+      </div>
     </div>
 
-    <p class="text-center py-8">
-      &#169; {new Date().getFullYear()}
-      {footer.copyright}
-    </p>
+    <style define:vars={{ linkHoverColor }}>
+      .footer {
+        max-width: var(--pageContainer);
+        margin: 0 auto;
+      }
+      .footer__logo-image {
+        display: block;
+        min-width: min(200px, 80%);
+      }
+      .footer-links li:hover {
+        color: var(--linkHoverColor);
+      }
+      .footer-right-column {
+        background-color: #e6e6e7;
+      }
+    </style>
   </div>
 </footer>
-
-<style define:vars={{ linkHoverColor }}>
-  .footer {
-    max-width: var(--pageContainer);
-    margin: 0 auto;
-  }
-  .footer__logo-image {
-    display: block;
-    max-width: min(200px, 80%);
-  }
-  .footer-links li:hover {
-    color: var(--linkHoverColor);
-  }
-</style>

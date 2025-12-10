@@ -1,86 +1,91 @@
 ---
-interface Props {}
-const {} = Astro.props;
-
-const guides = [
+const cards = [
   {
-    title_prefix: "LET US CALCULATE THE",
-    highlight: "TOP 10",
-    description: "NUMBERS FOR YOUR PRACTICE",
+    preTitle: "LET US CALCULATE THE",
+    bigNumber: "TOP 10",
+    subText: "NUMBERS FOR YOUR PRACTICE",
     link: "#",
   },
   {
-    title_prefix: "TRULY UNDERSTAND",
-    highlight: "3 WAYS",
-    description: "NUMBERS FOR YOUR PRACTICE",
+    preTitle: "TRULY UNDERSTAND",
+    bigNumber: "3 WAYS",
+    subText: "NUMBERS FOR YOUR PRACTICE",
     link: "#",
   },
   {
-    title_prefix: "LEARN THE",
-    highlight: "9 CORE",
-    description: "ELEMENTS OF PRACTICE GROWTH",
+    preTitle: "LEARN THE",
+    bigNumber: "9 CORE",
+    subText: "ELEMENTS OF PRACTICE GROWTH",
     link: "#",
   },
 ];
 ---
 
-<section class="bg-secondary text-white py-20 px-6 font-sans">
+<section
+  class="bg-secondary min-h-screen text-white py-24 px-6 md:px-12 font-sans antialiased"
+>
   <div class="max-w-7xl mx-auto">
     <div
-      class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-8"
+      class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8"
     >
-      <h2
-        class="text-4xl md:text-5xl font-extrabold uppercase tracking-wide leading-tight"
-      >
-        <span class="block text-white">Dental Marketing</span>
-        <span class="block text-brand-orange">Reference Guides</span>
-      </h2>
+      <div class="w-full lg:w-1/2">
+        <h1
+          class="text-5xl md:text-6xl font-black uppercase tracking-wide leading-none"
+        >
+          <span class="block text-white">Dental Marketing</span>
+          <span class="block text-[#de7c5e]">Reference Guides</span>
+        </h1>
+      </div>
 
-      <p
-        class="text-gray-400 max-w-md text-sm md:text-base leading-relaxed text-right lg:text-right self-end lg:self-center"
-      >
-        To be successful for 25 years, you have to be a little different. This
-        difference starts with core principles we have developed.
-      </p>
+      <div class="w-full lg:w-1/3 text-left lg:text-right">
+        <p class="text-gray-400 text-sm leading-relaxed max-w-sm ml-auto">
+          To be successful for 25 years, you have to be a little different. This
+          difference starts with core principles we have developed.
+        </p>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
-        guides.map((guide) => (
-          <div class="relative group p-[2px] rounded-2xl bg-gradient-to-b from-teal-400 to-orange-500 shadow-2xl">
-            <div class="bg-secondary h-full rounded-2xl p-10 flex flex-col items-center text-center justify-between relative z-10 transition-transform duration-300 group-hover:-translate-y-1">
-              <div class="space-y-2 mt-4">
-                <span class="block text-gray-500 text-sm uppercase tracking-wider font-medium">
-                  {guide.title_prefix}
+        cards.map((card) => (
+          <div class="group relative h-full rounded-2xl bg-gradient-to-b from-[#6ee7b7] to-[#de7c5e] py-[1px] hover:shadow-[0_0_20px_rgba(222,124,94,0.3)] transition-shadow duration-300">
+            <div class="relative h-full w-full drop-shadow-lg rounded-2xl bg-secondary p-10 flex flex-col items-center justify-center text-center">
+              <div class="flex-grow flex flex-col justify-center space-y-3">
+                <span class="text-gray-500 text-xs md:text-sm uppercase tracking-[0.15em] font-medium">
+                  {card.preTitle}
                 </span>
-                <h3 class="text-4xl font-black text-white uppercase tracking-tight">
-                  {guide.highlight}
-                </h3>
-                <p class="text-gray-400 uppercase text-sm font-medium tracking-wide">
-                  {guide.description}
-                </p>
+
+                <h2 class="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
+                  {card.bigNumber}
+                </h2>
+
+                <span class="text-gray-400 text-xs md:text-sm uppercase tracking-[0.15em] font-medium">
+                  {card.subText}
+                </span>
               </div>
 
-              <a
-                href={guide.link}
-                class="mt-12 inline-flex items-center text-white font-bold text-sm group-hover:text-brand-orange transition-colors"
-              >
-                Learn More
-                <svg
-                  class="ml-2 w-5 h-5 text-brand-orange"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+              <div class="mt-10">
+                <a
+                  href={card.link}
+                  class="inline-flex items-center gap-2 font-bold text-white text-sm group-hover:text-[#de7c5e] transition-colors duration-200"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </a>
+                  Learn More
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2.5"
+                    stroke="#de7c5e"
+                    class="w-4 h-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         ))
@@ -88,46 +93,3 @@ const guides = [
     </div>
   </div>
 </section>
-
-<style>
-  /* Custom color definitions if you don't want to add them to tailwind.config.js */
-  .bg-dark-900 {
-    background-color: #1a1b1f;
-  }
-  .bg-dark-800 {
-    background-color: #232428;
-  }
-  .text-brand-orange {
-    color: #d97a5a;
-  }
-</style>
-<!-- 
-<section class="bg-secondary flex flex-col">
-  <div class="flex-shrink flex flex-row gap-2">
-    <div class="flex-grow">
-      <h1>Dental Marketing Reference Guides</h1>
-    </div>
-    <div class="flex-shrink">
-      <p>
-        To be successful for 25 years, you have to be a little different. This
-        difference starts with core principles we have developed.
-      </p>
-    </div>
-  </div>
-  <div class="flex-grow flex flex-col gap-2">
-    <div class="flex-1 flex flex-col">
-      <div class="flex-1">
-        <h5>Let us calculate the</h5>
-        <h2>Top 10</h2>
-        <h5>Numbers for</h5>
-        <h5>your practice</h5>
-      </div>
-    </div>
-    <div class="flex-1 flex flex-col">
-      <div class="flex-1"></div>
-    </div>
-    <div class="flex-1 flex flex-col">
-      <div class="flex-1"></div>
-    </div>
-  </div>
-</section> -->

@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  background_color: string;
+  heading_content: string;  
+  subheader_content: string;
+}
+
+const {
+  background_color,
+  heading_content, 
+  subheader_content,
+} = Astro.props;
+
+// 1. Import your icons here. 
+// Ensure your files exist in src/assets/icons/
+import iconNoContracts from "../../assets/icons/no-contracts.svg"; // or .svg
+import iconContact from "../../assets/icons/conversation.svg";
+import iconCustomContent from "../../assets/icons/design.svg";
+import iconSecurity from "../../assets/icons/security.svg";
+import iconServices from "../../assets/icons/services.svg";
+
+// 2. Define data for the section
+const features = [
+  {
+    title: "No Contracts\nEver!",
+    icon: iconNoContracts,
+    alt: "Hands ripping a contract paper",
+  },
+  {
+    title: "A Single\nPoint-of-Contact",
+    icon: iconContact,
+    alt: "Two people talking",
+  },
+  {
+    title: "100% Custom\nDesigned Content",
+    icon: iconCustomContent,
+    alt: "Hand adjusting layout on a screen",
+  },
+  {
+    title: "You Own Your\nWebsite...Always!",
+    icon: iconSecurity,
+    alt: "Lock and shield security icon",
+  },
+  {
+    title: "A La Carte\nServices & Fees",
+    icon: iconServices,
+    alt: "Person checking off a list",
+  },
+];
+
+
+
+
+---
+
+<section style={`background-color: ${background_color};`}class="py-16 px-4 md:px-8 lg:py-24">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Top Section: Header & Description -->
+    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 mb-20">
+      
+      <!-- Headline -->
+      <h2 
+        set:html={heading_content}
+        class="text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-[0.9] text-[#232629] tracking-tighter" 
+      />        
+
+      <!-- Description Text -->
+      <div class="max-w-xl text-lg text-[#333] leading-relaxed lg:text-right">
+        <p set:html={subheader_content} />
+    </div>
+    </div>
+
+    <!-- Bottom Section: Icons Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-12">
+      {features.map((item) => (
+        <div class="flex flex-col items-center text-center group">
+          <!-- Icon Container -->
+          <div class="h-32 w-full flex items-end justify-center mb-6">
+            <Image 
+              src={item.icon} 
+              alt={item.alt} 
+              class="max-h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+          
+          <!-- Title -->
+          <h3 class="text-[#232629] font-bold text-xl leading-tight whitespace-pre-line">
+            {item.title}
+          </h3>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

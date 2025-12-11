@@ -81,6 +81,11 @@ content_blocks:
         top_text: Overall, our marketing programs earn a
         bottom_text: ROI for each $1 invested
         oversize_text: 17x
+  - _bookshop_name: title-columns-image-column-text
+    background_color: '#FDF6DB'
+    heading_content: 'Enjoy Truly<br /> <span class="text-[#F0806D]">Unique</span> Benefits'
+    subheader_content: >-
+      'We start with a heavy dose of <span class="font-bold">common sense</span>. From there, we do not ask you to do anything we would not do. That includes never requiring you to sign a contract. In the end, all of the <span class="font-bold">“little extras”</span> make us very different from the competition – and quite possibly the <span class="font-bold">best dental marketing</span> company for you.'
   - _bookshop_name: title-image-block
     background_color: '#2A2F33'
     main_text_color: '#fff'
@@ -95,7 +100,7 @@ content_blocks:
       alt: Relationships Image
     bottom_text: >-
       THE LEADER OF TNT'S SOCIAL MEDIA TEAM, CATHERINE, AT A PHOTO SHOOT WITH THE TEAM AT NORTHEAST ARKANSAS DENTISTRY
-  - _bookshop_name: circle-image-section
+  - _bookshop_name: circle-icon-section
     background_color: '#fff'
     main_text_color: '#000'
     heading:
@@ -120,7 +125,7 @@ content_blocks:
       - src: /src/assets/images/partners/ux-design-institute.svg
         alt: "x"
       - src: /src/assets/images/partners/weave-partner.svg
-        alt: "x"
+        alt: "x"  
   - _bookshop_name: title-image-block
     background_color: '#fff'
     main_text_color: "#000"
@@ -135,6 +140,7 @@ content_blocks:
       alt: Working Image
     bottom_text: >-
       KELSEY, TNT GROWER LEADER
-  - _bookshop_name: circle-icon-section
+  - _bookshop_name: circle-image-section
+    background_color: '#FDF6DB'
   - _bookshop_name: three-columns    
 ---

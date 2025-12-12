@@ -100,31 +100,15 @@ content_blocks:
     bottom_text: >-
       THE LEADER OF TNT'S SOCIAL MEDIA TEAM, CATHERINE, AT A PHOTO SHOOT WITH THE TEAM AT NORTHEAST ARKANSAS DENTISTRY
   - _bookshop_name: circle-icon-section
-    background_color: '#fff'
-    main_text_color: '#000'
-    heading:
-      primary_text: KNOWN BY THE
-      secondary_text: COMPANY WE KEEP
-    subheading:
-      text: >-
-        We are proud to be the only dental marketing company with this incredible array of credentials, awards, and partnerships.  The votes of confidence from other leaders mean the world to us.  We believe they will make a difference to you, too.
-    images:
-      - src: /src/assets/images/partners/ada-certificate.svg
-        alt: "x"
-      - src: /src/assets/images/partners/curve-partner.svg
-        alt: "x"
-      - src: /src/assets/images/partners/dental-intelligence.svg
-        alt: "x"
-      - src: /src/assets/images/partners/facebook.svg
-        alt: "x"
-      - src: /src/assets/images/partners/google-partner.svg
-        alt: "x"
-      - src: /src/assets/images/partners/pace-partner.svg
-        alt: "x"
-      - src: /src/assets/images/partners/ux-design-institute.svg
-        alt: "x"
-      - src: /src/assets/images/partners/weave-partner.svg
-        alt: "x"  
+    primary_content: MARKETING FOR<br />DENTISTS <span class="text-[#FF8469]">JUST LIKE YOU</span>
+    secondary_content: >-
+      We help dentists of all shapes and sizes with all types of goals and
+      visions improve their practices and <strong>simplify their lives</strong>. 
+      Whether you are a start-up, Board Certified Periodontist, or Heartland practice; 
+      we have worked with another <strong>dentist like you</strong>. 
+      Just click on the icon that best describes you and see how this
+      experience and expertise is included in everything we do – our
+      compliments!
   - _bookshop_name: title-image-block
     background_color: '#fff'
     main_text_color: "#000"

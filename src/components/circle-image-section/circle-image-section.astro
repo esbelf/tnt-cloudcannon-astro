@@ -6,6 +6,11 @@ const { background_color } = Astro.props;
 const backgroundStyle = background_color
   ? `background-color: ${background_color};`
   : "";
+
+const partnerImages = import.meta.glob("../../assets/images/partners/*.svg", {
+  as: "raw",
+  eager: true,
+});
 ---
 
 <div style={backgroundStyle}>

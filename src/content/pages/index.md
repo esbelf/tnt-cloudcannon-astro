@@ -122,5 +122,8 @@ content_blocks:
       KELSEY, TNT GROWER LEADER
   - _bookshop_name: circle-image-section
     background_color: '#FDF6DB'
+    header_content: KNOWN BY THE<br/><span class="text-[#F0806D]">COMPANY WE KEEP</span>
+    subheader_content: >-
+      We are proud to be the only dental marketing company with this incredible array of <strong>credentials</strong>, <strong>awards</strong>, and <strong>partnerships</strong>. The votes of confidence from other leaders mean the world to us. We believe they will <strong>make a difference</strong> to you, too.
   - _bookshop_name: three-columns    
 ---

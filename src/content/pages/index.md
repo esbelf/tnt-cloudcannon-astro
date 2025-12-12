@@ -95,7 +95,7 @@ content_blocks:
     subheading_content: >-
         Along with delivering <strong>unmatched results</strong>, we work hard every day to earn your trust and confidence.  It is why our first customer is still with us after <strong>26 years</strong>.  Each client enjoys a single point-of-contact who has an average of 6 years of dental marketing experience.  And, these folks are dedicated to making your marketing understandable and <strong>your life easier</strong>.
     image:
-      src:  /src/assets/images/relationships.jpg
+      src:  relationships.jpg
       alt: Relationships Image
     bottom_text: >-
       THE LEADER OF TNT'S SOCIAL MEDIA TEAM, CATHERINE, AT A PHOTO SHOOT WITH THE TEAM AT NORTHEAST ARKANSAS DENTISTRY
@@ -116,7 +116,7 @@ content_blocks:
     subheading_content: >-
         Gone are the days of trying to figure out and coordinate what 4 different marketing companies are doing.  Here is the opportunity to have TNT <strong>handle everything</strong>.  From analytics to websites to Google Ads, we are experts.  From front desk training to geo-fencing to social media, we got it.  Best of all, our efforts always include <strong>transparency</strong>, clarity, and accountability.
     image:
-      src: /src/assets/images/working.png
+      src: working.png
       alt: Working Image
     bottom_text: >-
       KELSEY, TNT GROWER LEADER

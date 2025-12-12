@@ -3,38 +3,24 @@ import { Picture } from "astro:assets";
 import ResultContentBlock from "./result-content-block.astro";
 
 interface Props {
-  key: number;
-  content_blocks_length: number;
-  background_color: string;
-  heading: {
-    heading_primary_text: string;
-    heading_secondary_text: string;
-  };
-  subheading: {
-    subheading_text: string;
-  };
+  heading_content: string;
+  subheading_content: string;
   content_blocks?: Record<string, any>[];
 }
 const {
-  key,
-  content_blocks_length,
-  background_color,
-  heading,
-  subheading,
+  heading_content,
+  subheading_content,
   content_blocks = [],
 } = Astro.props;
 ---
 
-<div class="flex flex-col gap-4 p-4">
+<section class="flex flex-col gap-4 p-4">
   <div class="flex-shrink flex flex-row gap-4">
     <div class="flex-1">
-      <h1 class="font-outline font-black text-6xl">
-        {heading.heading_primary_text}
-      </h1>
-      <h1 class="font-black text-6xl">{heading.heading_secondary_text}</h1>
+      <h1 set:html={heading_content} class="font-outline font-black text-6xl" />
     </div>
     <div class="flex-1">
-      <p class="font-normal">{subheading.subheading_text}</p>
+      <p set:html={subheading_content} class="font-normal text-right" />
     </div>
   </div>
   <div class="flex flex-col gap-4">
@@ -56,4 +42,4 @@ const {
       </div>
     </div>
   </div>
-</div>
+</section>

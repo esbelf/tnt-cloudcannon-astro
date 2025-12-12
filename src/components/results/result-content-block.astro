@@ -60,9 +60,10 @@ const innerHTML = getSvgInnerContent(rawSvg);
     <p class="text-3xl font-outline font-medium text-center">{top_text}</p>
   </div>
   <div class="">
-    <p class="text-9xl font-extralight font-outline text-center">
-      {oversize_text}
-    </p>
+    <p
+      set:html={oversize_text}
+      class="text-9xl font-extralight font-outline text-center"
+    />
   </div>
   <div class="">
     <p class="text-3xl font-outline font-medium text-center">

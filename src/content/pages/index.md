@@ -54,33 +54,34 @@ hero_block:
 content_blocks:
   - _bookshop_name: results
     background_color: '#034AD8'
-    heading:
-      heading_primary_text: START WITH
-      heading_secondary_text: UNMATCHED RESULTS
-    subheading:
-      subheading_text: >- 
-        Plain and simple, we deliver. For many, this means new patients. For others, it is higher case acceptance or getting the “right kind” of patient. Our efforts are customized to help you achieve your goals. In fact, we believe it is the biggest reason TNT has the highest level of customer loyalty ever recorded by an Internet marketing company.
+    heading_content:
+      'START WITH<br /> <span class="text-[#F0806D]">UNMATCHED</span> RESULTS'
+    subheading_content: >- 
+        Plain and simple, <strong>we deliver</strong>. For many, this means <strong>new patients</strong>. For others, it is higher case acceptance or getting the “right kind” of patient. Our efforts are <strong>customized</strong> to help you achieve your goals. In fact, we believe it is the biggest reason TNT has the highest level of customer <strong>loyalty</strong> ever recorded by an Internet marketing company.
     content_blocks:
       - _bookshop_name: result-content-block
         icon_name: america
         top_text: We love being able to work with
         bottom_text: dentits across all 50 states & Canada
-        oversize_text: 1200+
+        oversize_text: 1200<span class="text-[#F0806D] text-7xl">+</span>     
+
       - _bookshop_name: result-content-block
         icon_name: hug
         top_text: On average, our clients enjoy a 
         bottom_text: year relationship with TNT
-        oversize_text: '13.1'
+        oversize_text: 13<span class="text-[#F0806D] text-7xl">.</span>1
+
       - _bookshop_name: result-content-block
         icon_name: bar-graph
         top_text: Our new customers experience a
         bottom_text: first-year increase in new patients
-        oversize_text: 52%
+        oversize_text: 52<span class="text-[#F0806D] text-7xl">%</span>
+
       - _bookshop_name: result-content-block
         icon_name: stacked-coins
         top_text: Overall, our marketing programs earn a
         bottom_text: ROI for each $1 invested
-        oversize_text: 17x
+        oversize_text: 17<span class="text-[#F0806D] text-7xl">x</span>
   - _bookshop_name: title-columns-image-column-text
     background_color: '#FDF6DB'
     heading_content: 'Enjoy Truly<br /> <span class="text-[#F0806D]">Unique</span> Benefits'

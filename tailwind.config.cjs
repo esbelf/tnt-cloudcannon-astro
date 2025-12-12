@@ -17,7 +17,7 @@ module.exports = {
     extend: {
       fontFamily: {
         system: ['system-ui'],
-        outfit: ['Outfit']
+        outfit: ['Outfit Variable']
       }
     },
     plugins: [],

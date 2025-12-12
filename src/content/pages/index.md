@@ -86,16 +86,14 @@ content_blocks:
     background_color: '#FDF6DB'
     heading_content: 'Enjoy Truly<br /> <span class="text-[#F0806D]">Unique</span> Benefits'
     subheader_content: >-
-      'We start with a heavy dose of <span class="font-bold">common sense</span>. From there, we do not ask you to do anything we would not do. That includes never requiring you to sign a contract. In the end, all of the <span class="font-bold">“little extras”</span> make us very different from the competition – and quite possibly the <span class="font-bold">best dental marketing</span> company for you.'
+      We start with a heavy dose of <span class="font-bold">common sense</span>. From there, we do not ask you to do anything we would not do. That includes never requiring you to sign a contract. In the end, all of the <span class="font-bold">“little extras”</span> make us very different from the competition – and quite possibly the <span class="font-bold">best dental marketing</span> company for you.
   - _bookshop_name: title-image-block
     background_color: '#2A2F33'
     main_text_color: '#fff'
-    heading: 
-      primary_text: BUILD STRONG
-      secondary_text: RELATIONSHIPS
-    subheading: 
-      text: >-
-        Along with delivering unmatched results, we work hard every day to earn your trust and confidence.  It is why our first customer is still with us after 26 years.  Each client enjoys a single point-of-contact who has an average of 6 years of dental marketing experience.  And, these folks are dedicated to making your marketing understandable and your life easier.
+    heading_content: 
+      BUILD STRONG <span class="text-[#F0806D]">RELATIONSHIPS</span>      
+    subheading_content: >-
+        Along with delivering <strong>unmatched results</strong>, we work hard every day to earn your trust and confidence.  It is why our first customer is still with us after <strong>26 years</strong>.  Each client enjoys a single point-of-contact who has an average of 6 years of dental marketing experience.  And, these folks are dedicated to making your marketing understandable and <strong>your life easier</strong>.
     image:
       src:  /src/assets/images/relationships.jpg
       alt: Relationships Image

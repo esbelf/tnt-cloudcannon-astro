@@ -108,33 +108,38 @@ const linkHoverColor = footer.hover_text_color;
         </h6>
         <div class="mt-4 flex flex-row justify-center">
           <button
-            class="inline-block px-6 py-3 text-white bg-primary rounded-2xl font-bold"
+            class="rounded-2xl bg-[#B2564B] pb-[4px] group relative h-full"
           >
-            <h5 class="text-3xl">REQUEST</h5>
-            <p class="text-lg">A FREE MARKETING EVALUATION</p>
+            <div
+              class="inline-block px-6 py-3 text-white bg-primary rounded-2xl
+            font-bold"
+            >
+              <h5 class="text-3xl">REQUEST</h5>
+              <p class="text-lg">A FREE MARKETING EVALUATION</p>
+            </div>
           </button>
         </div>
+        <div class="flex-1">
+          <Image src={footerImage} alt={"footerimage"} class="h-full w-full" />
+        </div>
       </div>
-      <div class="flex-1">
-        <Image src={footerImage} alt={"footerimage"} class="h-full w-full" />
-      </div>
-    </div>
 
-    <style define:vars={{ linkHoverColor }}>
-      .footer {
-        max-width: var(--pageContainer);
-        margin: 0 auto;
-      }
-      .footer__logo-image {
-        display: block;
-        min-width: min(200px, 80%);
-      }
-      .footer-links li:hover {
-        color: var(--linkHoverColor);
-      }
-      .footer-right-column {
-        background-color: #e6e6e7;
-      }
-    </style>
+      <style define:vars={{ linkHoverColor }}>
+        .footer {
+          max-width: var(--pageContainer);
+          margin: 0 auto;
+        }
+        .footer__logo-image {
+          display: block;
+          min-width: min(200px, 80%);
+        }
+        .footer-links li:hover {
+          color: var(--linkHoverColor);
+        }
+        .footer-right-column {
+          background-color: #e6e6e7;
+        }
+      </style>
+    </div>
   </div>
 </footer>

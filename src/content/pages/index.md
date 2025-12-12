@@ -13,44 +13,11 @@ seo:
   no_index: false
 hero_block:
   _bookshop_name: heroes/hero
-  background_color: '#ffffff'
   heading:
     text_span: DENTAL MARKETING
     text_primary: THE POWER BEHIND
     text_secondary: YOUR PRACTICE
     heading_gradient_color: '#A0A2FF'
-    text_color: '#333232'
-  subheading:
-    text_content: >-
-      A starting point for developers looking to build a website with Astro,
-      using Bookshop components in CloudCannon. Create your own copy, and start
-      creating your own components to use in CloudCannon’s CMS.
-    color: '#393939'
-    text_color: '#333232'
-  image:
-    image_path: /src/assets/images/transparent-bg/undraw-online-test.svg
-    alt_text: >-
-      An illustration of someone leaning against the inside of a desktop
-      computer monitor, with one leg dangled off the side. They're holding a
-      piece of paper with a large 'A', and are next to some buttons on the
-      screen.
-  buttons:
-    - _bookshop_name: buttons/primary
-      button_text: GitHub
-      button_icon: GitHub
-      button_link: https://github.com/CloudCannon/astro-starter/
-      background_color: '#034AD8'
-      hover_brightness: 0.85
-      text_color: '#ffffff'
-      button_aria_label:
-    - _bookshop_name: buttons/secondary
-      button_text: CloudCannon
-      button_icon: CloudCannon
-      button_link: https://www.cloudcannon.com
-      text_color: '#034AD8'
-      hover_brightness: 0.85
-      button_aria_label:
-      background_color: '#034ad8'
 content_blocks:
   - _bookshop_name: results
     background_color: '#034AD8'

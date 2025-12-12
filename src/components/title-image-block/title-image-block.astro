@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro:assets";
+
 interface Props {
   main_text_color: string;
   background_color: string;
@@ -21,6 +24,20 @@ const {
 const backgroundStyle = background_color
   ? `background-color: ${background_color};`
   : "";
+
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/images/**/*.{png,jpg,jpeg}",
+  {
+    eager: true,
+  }
+);
+const importedImageModule = allImages[`../../assets/images/${image.src}`];
+
+if (!importedImageModule) {
+  throw new Error(`Image not found at ../../assets/images/${image.src}`);
+}
+
+const importedImage = importedImageModule.default;
 ---
 
 <section class={"w-full base-class"} style={backgroundStyle}>
@@ -37,8 +54,8 @@ const backgroundStyle = background_color
 
     <!-- Full-width image -->
     <div class="flex-1">
-      <img
-        src={`../../asses/images/${image.src}`}
+      <Image
+        src={importedImage}
         alt={image.alt}
         class="w-full h-auto object-cover"
       />

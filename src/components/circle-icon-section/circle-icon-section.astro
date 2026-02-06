@@ -82,12 +82,14 @@ const bottomItems = [
 <section class="bg-[#CBE9EB] py-16 px-4 md:px-8 overflow-hidden font-sans">
   <div class="max-w-full mx-auto">
     <!-- Desktop Layout: 4 Column Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-8 gap-y-12 gap-x-4 items-end">
+    <div
+      class="grid grid-cols-2 gap-y-8 md:grid-cols-8 md:gap-y-12 md:gap-x-4 items-end"
+    >
       <!-- TOP ROW (4 Items) -->
       {
         topItems.map((item, index) => (
           <div
-            class={`col-span-2 flex flex-col items-center text-center group ${index === 1 || index === 2 ? "pb-16" : ""}`}
+            class={`col-span-1 md:col-span-2 flex flex-col items-center text-center group ${index === 1 || index === 2 ? "md:pb-16" : ""}`}
           >
             <div class="mb-4 relative transition-transform duration-300 group-hover:-translate-y-2">
               <span
@@ -107,7 +109,9 @@ const bottomItems = [
       <!-- MIDDLE ROW -->
 
       <!-- Middle Left Item -->
-      <div class="h-full flex flex-col justify-center items-start">
+      <div
+        class="col-span-1 md:col-span-1 h-full flex flex-col justify-center items-center md:items-start"
+      >
         <div
           class="flex flex-col justify-center items-center text-center group"
         >
@@ -132,7 +136,7 @@ const bottomItems = [
       <!-- CENTER CONTENT (Spans 2 columns on desktop) -->
       <!-- Order-first on mobile so the text appears at the top, order-none on desktop to sit in the middle -->
       <div
-        class="col-span-6 flex flex-col items-center justify-center text-center order-first md:order-none mb-12 md:mb-0 px-2"
+        class="col-span-2 md:col-span-6 flex flex-col items-center justify-center text-center order-first md:order-none mb-12 md:mb-0 px-2"
       >
         <h2
           class="text-7xl font-black text-slate-800 tracking-tight leading-tight mb-6"
@@ -145,7 +149,9 @@ const bottomItems = [
       </div>
 
       <!-- Middle Right Item -->
-      <div class="h-full flex flex-col justify-center items-end">
+      <div
+        class="col-span-1 md:col-span-1 h-full flex flex-col justify-center items-center md:items-end"
+      >
         <div
           class="flex flex-col justify-center items-center text-center group"
         >
@@ -171,7 +177,7 @@ const bottomItems = [
       {
         bottomItems.map((item, index) => (
           <div
-            class={`col-span-2 flex flex-col items-center text-center group ${index === 0 || index === 3 ? "pb-16" : ""}`}
+            class={`col-span-1 md:col-span-2 flex flex-col items-center text-center group ${index === 0 || index === 3 ? "md:pb-16" : ""}`}
           >
             <div class="mb-4 relative transition-transform duration-300 group-hover:-translate-y-2">
               <span

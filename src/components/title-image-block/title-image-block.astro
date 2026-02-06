@@ -31,10 +31,11 @@ const allImages = import.meta.glob<{ default: ImageMetadata }>(
     eager: true,
   },
 );
-const importedImageModule = allImages[`../../assets/images/${image.src}`];
+const imageKey = "../../assets/images/" + image.src;
+const importedImageModule = allImages[imageKey];
 
 if (!importedImageModule) {
-  throw new Error(`Image not found at ../../assets/images/${image.src}`);
+  throw new Error("Image not found at " + imageKey);
 }
 
 const importedImage = importedImageModule.default;

@@ -16,7 +16,10 @@ const partnerImages = import.meta.glob("../../assets/images/partners/*.svg", {
 ---
 
 <div style={backgroundStyle}>
-  <div class="md:hidden flex flex-col items-center gap-8 py-16 px-4">
+  <div
+    class="md:hidden flex flex-col items-center gap-8 py-16 px-4"
+    data-circle-image-section
+  >
     <div
       class="flex-shrink md:hidden text-center order-first md:order-2 flex-[2.5] z-10"
     >
@@ -32,46 +35,54 @@ const partnerImages = import.meta.glob("../../assets/images/partners/*.svg", {
 
     <div class="grid w-full grid-cols-2 place-items-center gap-16">
       <span
+        class="js-spin-fade"
         set:html={partnerImages[
           "../../assets/images/partners/dental-intelligence.svg"
         ]}
         style={`width:auto;height:4rem`}
       />
       <span
+        class="js-spin-fade"
         set:html={partnerImages[
           "../../assets/images/partners/google-partner.svg"
         ]}
         style={`width:auto;height:4rem`}
       />
       <span
+        class="js-spin-fade"
         set:html={partnerImages[
           "../../assets/images/partners/ada-certificate.svg"
         ]}
         style={`width:auto;height:4rem`}
       />
       <span
+        class="js-spin-fade"
         set:html={partnerImages[
           "../../assets/images/partners/ux-design-institute.svg"
         ]}
         style={`width:auto;height:4rem`}
       />
       <span
+        class="js-spin-fade"
         set:html={partnerImages[
           "../../assets/images/partners/curve-partner.svg"
         ]}
         style={`width:auto;height:4rem`}
       />
       <span
+        class="js-spin-fade"
         set:html={partnerImages[
           "../../assets/images/partners/pace-partner.svg"
         ]}
         style={`width:auto;height:4rem`}
       />
       <span
+        class="js-spin-fade"
         set:html={partnerImages["../../assets/images/partners/facebook.svg"]}
         style={`width:auto;height:4rem`}
       />
       <span
+        class="js-spin-fade"
         set:html={partnerImages[
           "../../assets/images/partners/weave-partner.svg"
         ]}
@@ -80,10 +91,15 @@ const partnerImages = import.meta.glob("../../assets/images/partners/*.svg", {
     </div>
   </div>
 </div>
-<div class="hidden w-full mx-auto md:flex flex-col gap-16 relative py-16 px-12">
+
+<div
+  class="hidden w-full mx-auto md:flex flex-col gap-16 relative py-16 px-12"
+  data-circle-image-section
+>
   <div class="flex flex-row justify-center items-center gap-8 md:gap-32">
     <div class="flex-1 flex flex-col items-end">
       <span
+        class="js-spin-fade"
         set:html={partnerImages[
           "../../assets/images/partners/dental-intelligence.svg"
         ]}
@@ -92,6 +108,7 @@ const partnerImages = import.meta.glob("../../assets/images/partners/*.svg", {
     </div>
     <div class="flex-1 flex flex-col items-start">
       <span
+        class="js-spin-fade"
         set:html={partnerImages[
           "../../assets/images/partners/google-partner.svg"
         ]}
@@ -108,6 +125,7 @@ const partnerImages = import.meta.glob("../../assets/images/partners/*.svg", {
     >
       <div class="text-center md:text-left">
         <span
+          class="js-spin-fade"
           set:html={partnerImages[
             "../../assets/images/partners/ada-certificate.svg"
           ]}
@@ -118,6 +136,7 @@ const partnerImages = import.meta.glob("../../assets/images/partners/*.svg", {
         class="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left"
       >
         <span
+          class="js-spin-fade"
           set:html={partnerImages[
             "../../assets/images/partners/ux-design-institute.svg"
           ]}
@@ -142,6 +161,7 @@ const partnerImages = import.meta.glob("../../assets/images/partners/*.svg", {
     >
       <div class="text-center md:text-right">
         <span
+          class="js-spin-fade"
           set:html={partnerImages[
             "../../assets/images/partners/curve-partner.svg"
           ]}
@@ -152,6 +172,7 @@ const partnerImages = import.meta.glob("../../assets/images/partners/*.svg", {
         class="flex flex-col md:flex-row-reverse items-center md:items-start gap-4 text-center md:text-right"
       >
         <span
+          class="js-spin-fade"
           set:html={partnerImages[
             "../../assets/images/partners/pace-partner.svg"
           ]}
@@ -164,12 +185,14 @@ const partnerImages = import.meta.glob("../../assets/images/partners/*.svg", {
   <div class="flex flex-row justify-center items-center gap-8 md:gap-32">
     <div class="flex-1 flex flex-col items-end">
       <span
+        class="js-spin-fade"
         set:html={partnerImages["../../assets/images/partners/facebook.svg"]}
         style={`width:auto;height:4rem`}
       />
     </div>
     <div class="flex-1 flex flex-col items-start">
       <span
+        class="js-spin-fade"
         set:html={partnerImages[
           "../../assets/images/partners/weave-partner.svg"
         ]}
@@ -178,3 +201,65 @@ const partnerImages = import.meta.glob("../../assets/images/partners/*.svg", {
     </div>
   </div>
 </div>
+
+<script is:inline>
+  (() => {
+    const prefersReducedMotion =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const sections = document.querySelectorAll("[data-circle-image-section]");
+    if (sections.length === 0) return;
+
+    if (prefersReducedMotion) {
+      sections.forEach((section) => {
+        section
+          .querySelectorAll(".js-spin-fade")
+          .forEach((el) => el.classList.add("is-visible"));
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target
+            .querySelectorAll(".js-spin-fade")
+            .forEach((el) => el.classList.add("is-visible"));
+          obs.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.25 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  })();
+</script>
+
+<style>
+  .js-spin-fade {
+    display: inline-block;
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.8);
+  }
+
+  .js-spin-fade.is-visible {
+    animation: spin-fade-in 3s ease forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js-spin-fade {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+
+  @keyframes spin-fade-in {
+    to {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+</style>

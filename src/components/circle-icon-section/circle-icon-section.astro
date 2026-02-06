@@ -9,6 +9,9 @@ const icons = import.meta.glob("../../assets/icons/*.svg", {
   as: "raw",
   eager: true,
 });
+
+const iconDimension = 7;
+
 // Defines the data structure for the circular items to keep the HTML clean
 const topItems = [
   {
@@ -93,8 +96,8 @@ const bottomItems = [
           >
             <div class="mb-4 relative transition-transform duration-300 group-hover:-translate-y-2">
               <span
-                class={""}
-                style={`width:${4}rem;height:${4}rem`}
+                class="logo-animate"
+                style={`width:${iconDimension}rem;height:${iconDimension}rem`}
                 set:html={item["icon"]}
               />
             </div>
@@ -119,8 +122,8 @@ const bottomItems = [
             class="mb-4 relative transition-transform duration-300 group-hover:-translate-y-2"
           >
             <span
-              class={""}
-              style={`width:${4}rem;height:${4}rem`}
+              class="logo-animate"
+              style={`width:${iconDimension}rem;height:${iconDimension}rem`}
               set:html={middleLeftItem["icon"]}
             />
           </div>
@@ -159,8 +162,8 @@ const bottomItems = [
             class="mb-4 relative transition-transform duration-300 group-hover:-translate-y-2"
           >
             <span
-              class={""}
-              style={`width:${4}rem;height:${4}rem`}
+              class="logo-animate"
+              style={`width:${iconDimension}rem;height:${iconDimension}rem`}
               set:html={middleRightItem["icon"]}
             />
           </div>
@@ -181,8 +184,8 @@ const bottomItems = [
           >
             <div class="mb-4 relative transition-transform duration-300 group-hover:-translate-y-2">
               <span
-                class={""}
-                style={`width:${4}rem;height:${4}rem`}
+                class="logo-animate"
+                style={`width:${iconDimension}rem;height:${iconDimension}rem`}
                 set:html={item["icon"]}
               />
             </div>
@@ -196,3 +199,34 @@ const bottomItems = [
     </div>
   </div>
 </section>
+
+<style>
+  .logo-animate {
+    display: inline-block;
+    opacity: 0;
+    line-height: 0;
+    overflow: hidden;
+    animation: logo-spin-fade 2s ease forwards;
+  }
+
+  .logo-animate :global(svg) {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-animate {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+
+  @keyframes logo-spin-fade {
+    to {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+</style>

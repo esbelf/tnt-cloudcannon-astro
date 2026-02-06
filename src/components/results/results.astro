@@ -15,12 +15,18 @@ const {
 ---
 
 <section class="flex flex-col gap-4 p-4">
-  <div class="flex-shrink flex flex-row gap-4">
-    <div class="flex-1">
-      <h1 set:html={heading_content} class="font-outline font-black text-6xl" />
+  <div class="flex-shrink flex flex-col md:flex-row gap-4">
+    <div class="flex-1 text-center md:text-left">
+      <h1
+        set:html={heading_content}
+        class="font-outline font-black text-5xl md:text-6xl"
+      />
     </div>
     <div class="flex-1">
-      <p set:html={subheading_content} class="font-normal text-right" />
+      <p
+        set:html={subheading_content}
+        class="font-normal text-center md:text-right"
+      />
     </div>
   </div>
   <div class="flex flex-col gap-4">

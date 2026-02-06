@@ -29,7 +29,7 @@ const allImages = import.meta.glob<{ default: ImageMetadata }>(
   "../../assets/images/**/*.{png,jpg,jpeg}",
   {
     eager: true,
-  }
+  },
 );
 const importedImageModule = allImages[`../../assets/images/${image.src}`];
 
@@ -41,13 +41,15 @@ const importedImage = importedImageModule.default;
 ---
 
 <section class={"w-full base-class"} style={backgroundStyle}>
-  <div class="p-16 flex flex-col gap-8">
+  <div class="px-0 py-12 md:p-16 flex flex-col gap-8">
     <!-- Title bar across the width -->
-    <div class="flex-1 flex flex-row justify-between">
-      <div class="flex-1">
+    <div
+      class="p-4 md:p-0 flex-1 flex flex-col gap-6 md:gap-0 md:flex-row justify-between"
+    >
+      <div class="flex-1 text-center md:text-left">
         <h1 set:html={heading_content} class="font-black text-6xl" />
       </div>
-      <div class="flex-1 text-right">
+      <div class="flex-1 text-center md:text-right">
         <p set:html={subheading_content} />
       </div>
     </div>

@@ -1,6 +1,7 @@
 ---
 import type { ImageMetadata } from "astro";
 import Markdown from "../../utility/markdown.astro";
+import Icon from "../../utility/Icon";
 import heroBackground from "../../../assets/images/hero/hero-background.jpg";
 
 interface Props {
@@ -21,16 +22,39 @@ const backgroundStyle = `background-image: url('${heroBackground.src}');`;
 
 <section
   style={backgroundStyle}
-  class="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat min-h-[50rem]"
+  class="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat min-h-[35rem] sm:min-h-[43rem] md:min-h-[50rem]"
   aria-labelledby="hero-heading-text"
 >
-  <div class="absolute bottom-0 left-0 text-center text-white p-4">
-    <div class="text-left">
-      <span class="text-xs font-medium text-white">{heading.text_span}</span>
-      <h1 class="text-8xl font-black text-white">{heading.text_primary}</h1>
-      <h1 class="text-8xl font-black text-primary">
-        {heading.text_secondary}
-      </h1>
+  <div class="absolute bottom-0 left-0 text-center text-white">
+    <div class="p-4">
+      <div class="text-center sm:text-left w-full">
+        <span class="text-xs font-medium text-white">{heading.text_span}</span>
+        <h1 class="text-6xl sm:text-8xl font-black text-white">
+          {heading.text_primary}
+        </h1>
+        <h1 class="text-6xl sm:text-8xl font-black text-primary">
+          {heading.text_secondary}
+        </h1>
+      </div>
+    </div>
+    <div class="mt-4 flex w-full overflow-hidden">
+      <button
+        type="button"
+        class="flex w-3/5 items-center justify-center bg-primary px-4 py-4 text-xl font-semibold text-white"
+      >
+        CONNECT with TNT
+      </button>
+      <button
+        type="button"
+        class="flex w-2/5 items-center justify-center gap-2 bg-blue-light px-3 py-4 text-xl font-semibold uppercase text-white"
+      >
+        <span
+          class="flex h-8 w-8 items-center justify-center text-[4rem] leading-none"
+        >
+          <Icon icon="Phone" />
+        </span>
+        <span>Call</span>
+      </button>
     </div>
   </div>
 </section>

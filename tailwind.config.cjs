@@ -3,8 +3,8 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     screens: {
-      sm: '640px',
-      md: '768px',
+      sm: '600px',
+      md: '830px',
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
@@ -12,7 +12,8 @@ module.exports = {
     colors: {
       'white': '#fff',
       'primary': '#ED7465',
-      'secondary': '#2A2F33'
+      'secondary': '#2A2F33',
+      'blue-light': '#1088C4'
     },
     extend: {
       fontFamily: {

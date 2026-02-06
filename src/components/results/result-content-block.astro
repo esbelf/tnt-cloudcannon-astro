@@ -7,10 +7,12 @@ interface Props {
   icon_name: string;
   top_text: string;
   oversize_text: string;
+  oversize_num: number;
   bottom_text: string;
 }
 
-const { key, icon_name, top_text, oversize_text, bottom_text } = Astro.props;
+const { key, icon_name, top_text, oversize_text, oversize_num, bottom_text } =
+  Astro.props;
 
 // 1. Use import.meta.glob to import ALL SVGs as raw strings.
 // The file path must be a static string (no variables allowed inside the glob pattern).
@@ -45,7 +47,7 @@ function getSvgInnerContent(svgString: string): string {
 const innerHTML = getSvgInnerContent(rawSvg);
 ---
 
-<div class="flex-1 flex flex-col gap-2 p-4">
+<div class="flex-1 flex flex-col gap-2 p-4" data-result-block>
   <div class="flex items-center justify-center mb-2">
     <div class="h-[8rem] w-[8rem]">
       <svg
@@ -57,22 +59,92 @@ const innerHTML = getSvgInnerContent(rawSvg);
     </div>
   </div>
   <div class="">
-    <p class="text-3xl font-outline font-medium text-center">{top_text}</p>
+    <p class="text-3xl font-outline font-medium text-center js-fade-text">
+      {top_text}
+    </p>
   </div>
-  <div class="">
+  <div class="flex flex-row justify-center items-center">
+    <p class="text-9xl font-extralight font-outline text-center">
+      <span class="js-count-up" data-count-target={oversize_num}>0</span>
+    </p>
     <p
       set:html={oversize_text}
       class="text-9xl font-extralight font-outline text-center"
     />
   </div>
   <div class="">
-    <p class="text-3xl font-outline font-medium text-center">
+    <p class="text-3xl font-outline font-medium text-center js-fade-text">
       {bottom_text}
     </p>
   </div>
 </div>
 
+<script is:inline>
+  (() => {
+    const prefersReducedMotion =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const counters = document.querySelectorAll(".js-count-up");
+    if (counters.length === 0) return;
+
+    const animateCount = (el) => {
+      const target = Number(el.dataset.countTarget || 0);
+      if (Number.isNaN(target)) return;
+
+      if (prefersReducedMotion) {
+        el.textContent = String(target);
+        el.closest("[data-result-block]")
+          ?.querySelectorAll(".js-fade-text")
+          .forEach((textEl) => textEl.classList.add("is-visible"));
+        return;
+      }
+
+      const duration = 1200;
+      const start = performance.now();
+
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const value = Math.round(target * progress);
+        el.textContent = String(value);
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+          return;
+        }
+
+        el.closest("[data-result-block]")
+          ?.querySelectorAll(".js-fade-text")
+          .forEach((textEl) => textEl.classList.add("is-visible"));
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateCount(entry.target);
+          obs.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.4 },
+    );
+
+    counters.forEach((el) => observer.observe(el));
+  })();
+</script>
+
 <style>
+  .js-fade-text {
+    opacity: 0;
+    transition: opacity 2s ease;
+  }
+
+  .js-fade-text.is-visible {
+    opacity: 1;
+  }
+
   .icon-svg {
     /* Optional: ensures the icon scales correctly inside the parent box */
     display: block;

@@ -56,7 +56,7 @@ const importedImage = importedImageModule.default;
     </div>
 
     <!-- Full-width image -->
-    <div class="flex-1">
+    <div class="flex-1 image-hover">
       <Image
         src={importedImage}
         alt={image.alt}
@@ -72,5 +72,13 @@ const importedImage = importedImageModule.default;
 <style define:vars={{ main_text_color }}>
   .base-class {
     color: var(--main_text_color);
+  }
+
+  .image-hover :global(img) {
+    transition: transform 0.3s ease;
+  }
+
+  .image-hover:hover :global(img) {
+    transform: scale(1.03);
   }
 </style>
